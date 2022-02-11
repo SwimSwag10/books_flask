@@ -5,25 +5,27 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <title>Books</title>
+  <title>Authors</title>
 </head>
 <body class="container">
-  <form action="/create/author" method="post" class="row">
-    <div class="col">
-      <h2>Create Author</h2>
-      <div class="form-group">
-        <label for="name">Name:</label>
-        <input type="text" name="name" id="name" class="form-control">
+  <form action="/books" style="width: 100%;">
+    <input type="submit" value="Create Book" class="btn btn-primary col" style="margin-bottom: 20px;">
+  </form>
+  <div class="row">
+    <form action="/create/author" method="post" class="col">
+      <h2 class="text-primary">New Author</h2>
+      <div class="">
+          <label for="name">Name:</label>
+          <input type="text" name="name" class="form-control">
       </div>
-      <input type="submit" value="Create Author" class="btn btn-primary">
-    </div>
+      <input type="submit" value="Create Author" class="btn btn-primary" style="margin-top: 20px;">
+    </form>
     <div class="col">
       <h2>Authors</h2>
       {% for author in authors %}
         <p><a href="/authors/{{ author.id }}">{{ author.name }}</a></p>
       {% endfor %}
-      <a href="/books" class="btn btn-primary">Add Book</a>
-    <div>
-  </form>
+    </div>
+  </div>
 </body>
 </html>

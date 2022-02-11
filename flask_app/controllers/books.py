@@ -6,13 +6,13 @@ from flask_app.models import book, author
 
 # CREATE
 
-@app.route('/create/book', methods=['POST'])
+@app.route('/create/book', methods=['POST', 'GET'])
 def create_book():
   data = {
     "title" : request.form['title'],
     "num_of_pages" : request.form['num_of_pages']
   }
-  book_id = book.Book.save(data)
+  book.Book.save(data)
   return redirect('/books')
 
 #READ

@@ -35,6 +35,11 @@ def get_one_author(id):
   this_author = author.Author.get_one_with_favorites(data)
   return render_template('show_authors.html', author=this_author)
 
-# @app.route('authors.')
-
-#   return redirect(f/blah/{author.id})
+@app.route('/join/book',methods=['POST'])
+def join_book():
+    data = {
+        'author_id': request.form['author_id'],
+        'book_id': request.form['book_id']
+    }
+    author.Author.add_favorite(data)
+    return redirect(f"/author/{request.form['author_id']}")

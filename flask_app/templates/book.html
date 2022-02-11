@@ -8,12 +8,15 @@
   <title>Books</title>
 </head>
 <body class="container">
+  <form action="/authors" style="width: 100%;">
+    <input type="submit" value="Back" class="btn btn-primary col" style="margin-bottom: 20px;">
+  </form>
   <form action="/create/book" method="post" class="row">
     <div class="col">
-      <h2>Create Book</h2>
+      <h2 class="text-primary">Create Book</h2>
       <div class="form-group">
         <label for="name">Title:</label>
-        <input type="text" name="name" id="name" class="form-control">
+        <input type="text" name="title" id="title" class="form-control">
       </div>
       <div class="form-group">
       <label for="name">Number of Pages:</label>
@@ -26,7 +29,6 @@
       {% for book in all_books %}
         <p><a href="/books/{{ book.id }}">{{ book.title }}</a></p>
       {% endfor %}
-      <a href="/authors" class="btn btn-primary">Home</a>
     <div>
   </form>
 </body>

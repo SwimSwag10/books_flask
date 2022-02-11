@@ -40,6 +40,7 @@ class Book:
     WHERE books_schema.books.id = %(id)s
     ;"""
     results = connectToMySQL('books_schema').query_db(query,data)
+    print("why is this not working I'm not sure whty this is not working!!!!!!!!!!!!!!!")
     book = cls(results[0])
     for row in results: # think of this "row" as each row in a table
       if row['authors.id'] == None:
@@ -62,7 +63,6 @@ class Book:
     query = "SELECT * FROM books WHERE books.id NOT IN ( SELECT book_id FROM favorites WHERE author_id = %(id)s );"
     results = connectToMySQL('books_schema').query_db(query,data)
     books = []
-    print("why is this not working I'm not sure whty this is not working!!!!!!!!!!!!!!!")
     for row in results:
       books.append(cls(row))
     print(books)
