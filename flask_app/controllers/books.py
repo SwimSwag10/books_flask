@@ -39,5 +39,5 @@ def join_author():
         'author_id': request.form['author_id'],
         'book_id': request.form['book_id']
     }
-    author.Author.get_one_with_favorites(data)
-    return redirect(f"/book/{request.form['book_id']}")
+    author.Author.add_favorite(data)
+    return redirect(f"/books/{request.form['book_id']}")

@@ -3,6 +3,7 @@ from flask import render_template,redirect,request,session,flash
 from flask_app import app
 
 from flask_app.models import author
+from flask_app.models import book
 
 # CREATE
 
@@ -33,7 +34,8 @@ def get_one_author(id):
     'id' : id
   }
   this_author = author.Author.get_one_with_favorites(data)
-  return render_template('show_authors.html', author=this_author)
+  unfavorited_books = book.Book.unfavorited_books(data)
+  return render_template('show_authors.html', author=this_author, unfavorited_books=unfavorited_books)
 
 @app.route('/join/book',methods=['POST'])
 def join_book():
@@ -42,4 +44,4 @@ def join_book():
         'book_id': request.form['book_id']
     }
     author.Author.add_favorite(data)
-    return redirect(f"/author/{request.form['author_id']}")
+    return redirect(f"/authors/{request.form['author_id']}")

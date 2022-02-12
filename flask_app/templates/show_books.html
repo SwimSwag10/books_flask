@@ -12,7 +12,7 @@
     <div>
       <h2>Title: {{books.title}}</h2>
       <p>Favorited by:</p>
-      {% for author in books.authors_who_favorited %}
+      {% for author in books.favorites %}
       <p>{{author.name}}</p>
       {% endfor %}
     </div>

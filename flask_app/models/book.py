@@ -41,6 +41,7 @@ class Book:
     ;"""
     results = connectToMySQL('books_schema').query_db(query,data)
     print("why is this not working I'm not sure whty this is not working!!!!!!!!!!!!!!!")
+    print(results)
     book = cls(results[0])
     for row in results: # think of this "row" as each row in a table
       if row['authors.id'] == None:
